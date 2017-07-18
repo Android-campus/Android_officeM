@@ -1,6 +1,6 @@
-# Android_QuizApp_V2
+# Android_officeM
 
-## 安卓开发基础 练习
+## 安卓开发
 
 ![APP示意图](https://github.com/zouyang1230/Android_QuizApp_V2/raw/master/images/Quiz.jpg)
 
@@ -18,3 +18,48 @@ g:\zygit\Android_officeM
 3、FragmentManager类具体管理的是：
 * fragment队列
 * fragment事务回退栈
+
+4、单例：
+单例是特殊的java类，在创建实例时，一个单例类仅允许创建一个实例。
+应用能在内存里存多久，单例就能存多久。因此将对象列表保存在单例里的话，就能随时获取到crime数据，不管activity和fragment的生命周期怎么变化。
+使用单例还要注意一点： Android从内存里移除应用时，单例对象也就不复存在了。虽然CrimeLab单例不是数据持久保存的好方案，但它确实能保证仅拥有一份crime数据，并且方便了控制层类间的数据传递
+要创建单例，需创建一个带有私有构造方法及get()方法的类。如实例已存在， get()方法
+就直接返回它；如实例还不存在， get()方法就会调用构造方法创建它。
+示例：
+```java
+package com.zy.android_officem;
+
+import android.content.Context;
+
+/**
+ * Created by zouyang on 2017/7/16.
+ */
+
+public class CrimeLab {
+
+    private static CrimeLab sCrimeLab;
+
+    public static CrimeLab get(Context context) {
+        if (sCrimeLab == null) {
+            sCrimeLab = new CrimeLab(context);
+        }
+        return sCrimeLab;
+    }
+    private CrimeLab(Context context) {
+    }
+
+}
+```
+5、没有LayoutManager的支持，不仅RecyclerView无法工作，还会导致应用崩溃。所以， RecyclerView视图创建完成后，得立即转交给了LayoutManager对象。
+* RecyclerView类的任务就是回收再利用以及定位屏幕上的TextView视图。实际上，定位的任务被委托给了LayoutManager。
+* 除了在屏幕上定位列表项， LayoutManager还负责定义屏幕滚动行为。因此，没有LayoutManager， RecyclerView也就没法正常工作了。 Android将来可能会改变这种工作模式，但现在就是如此。
+
+
+
+
+
+
+
+
+
+
