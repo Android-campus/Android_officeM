@@ -2,7 +2,7 @@
 
 ## 安卓开发
 
-![APP示意图](https://github.com/zouyang1230/Android_QuizApp_V2/raw/master/images/Quiz.jpg)
+
 
 ### Tips：
 
