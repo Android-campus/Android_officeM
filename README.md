@@ -1,12 +1,7 @@
 # Android_officeM
 
-## 安卓开发
-
-
-
 ### Tips：
 
-g:\zygit\Android_officeM
 
 1、Google使用basename-vX模式作为支持库的命名约定。 
 * -vX指所支持的最低API级别。因此，以appcompat-v7为例，这里的-v7就是说Google兼容库可以应用到Android API 7及以上级别的设备上。
@@ -31,10 +26,6 @@ package com.zy.android_officem;
 
 import android.content.Context;
 
-/**
- * Created by zouyang on 2017/7/16.
- */
-
 public class CrimeLab {
 
     private static CrimeLab sCrimeLab;
@@ -53,6 +44,13 @@ public class CrimeLab {
 5、没有LayoutManager的支持，不仅RecyclerView无法工作，还会导致应用崩溃。所以， RecyclerView视图创建完成后，得立即转交给了LayoutManager对象。
 * RecyclerView类的任务就是回收再利用以及定位屏幕上的TextView视图。实际上，定位的任务被委托给了LayoutManager。
 * 除了在屏幕上定位列表项， LayoutManager还负责定义屏幕滚动行为。因此，没有LayoutManager， RecyclerView也就没法正常工作了。 Android将来可能会改变这种工作模式，但现在就是如此。
+
+6、采用fragment而不是activity来管理应用UI，可绕开Android系统activity使用规则的限制。
+
+7、在Bundle中存储和恢复的数据类型只能是基本数据类型（primitive type）以及可以实现Serializable或Parcelable接口的对象。在Bundle中保存定制类对象不是个好主意，因为你取回的对象可能已经过时了。
+* 比较好的做法是，通过其他方式保存定制类对象，而在Bundle中保存对象对应的基本数据类型的标示符。
+
+……
 
 
 
